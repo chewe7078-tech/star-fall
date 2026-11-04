@@ -1,1 +1,87 @@
-index.html
+index.htmlHTML
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Starfall - Magical Adventure</title>
+<style>
+* { box-sizing: border-box; }
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  color: white;
+  text-align: center;
+  background: linear-gradient(#100d35,#38206d,#11152e);
+  min-height: 100vh;
+}
+header { padding: 22px 10px; }
+h1 { color: #ffe58a; font-size: 42px; margin: 8px; }
+#stars { font-size: 20px; color: #ffe58a; }
+#world {
+  margin: 15px auto;
+  max-width: 500px;
+  min-height: 280px;
+  border: 3px solid #f9d77b;
+  border-radius: 20px;
+  background: radial-gradient(circle at 50% 30%,#7658a8,#17133d 70%);
+  padding: 25px 12px;
+}
+#hero { font-size: 75px; margin: 20px; }
+button {
+  background: #ffe58a;
+  color: #24133f;
+  border: none;
+  border-radius: 25px;
+  padding: 13px 23px;
+  margin: 7px;
+  font-weight: bold;
+  font-size: 16px;
+}
+button:active { transform: scale(.95); }
+#message { min-height: 48px; padding: 10px; }
+footer { padding: 20px; color: #cbb9f5; }
+</style>
+</head>
+<body>
+<header>
+<h1>⭐ STARFALL ⭐</h1>
+<p>A Magical Adventure Begins!</p>
+<div id="stars">✨ Stars: 0</div>
+</header>
+<main id="world">
+<h2 id="level">The Enchanted Forest</h2>
+<div id="hero">🧙‍♀️</div>
+<p id="message">Welcome, brave adventurer! Find the magical stars.</p>
+<button onclick="findStar()">✨ Find a Star</button>
+<button onclick="nextWorld()">🌙 Explore</button>
+</main>
+<footer>© 2026 Starfall - An Original Fantasy Adventure</footer>
+<script>
+let stars = 0;
+let world = 0;
+const worlds = [
+"The Enchanted Forest",
+"The Crystal Kingdom",
+"The Moonlight Valley",
+"The Dragon Mountains"
+];
+const heroes = ["🧙‍♀️","🧚","🦄","🐉"];
+function findStar() {
+ stars++;
+ document.getElementById("stars").textContent =
+ "✨ Stars: " + stars;
+ document.getElementById("message").textContent =
+ "Wonderful! You discovered a magical star! ⭐";
+}
+function nextWorld() {
+ world = (world + 1) % worlds.length;
+ document.getElementById("level").textContent = worlds[world];
+ document.getElementById("hero").textContent = heroes[world];
+ document.getElementById("message").textContent =
+ "Welcome to " + worlds[world] + "! Your adventure continues.";
+}
+</script>
+</body>
+</html>
